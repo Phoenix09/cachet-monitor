@@ -115,11 +115,15 @@ class Cachet(object):
             current_status = self.utils.getComponentsByID(c_id).json()['data']['status']
             incident_id = self.checkForIncident(c_id)
             check_timeout = self.config['monitoring'][x]['timeout']
+            try:
+                headers = self.config['monitoring'][x]['headers']
+            except KeyError:
+                headers = {}
 
             try:
                 if isEnabled:
                     if request_method.lower() == "get":
-                        r = requests.get(url, verify=True, timeout=check_timeout)
+                        r = requests.get(url, verify=True, timeout=check_timeout, headers=headers)
                         # self.utils.postMetricsPointsByID(1, r.elapsed.total_seconds() * 1000)
                         if r.status_code not in status_codes and r.status_code not in self.httpErrors:
                             error_code = '%s check **failed** - %s \n\n`%s %s HTTP StatusError: %s`' % (
@@ -142,7 +146,7 @@ class Cachet(object):
                                 self.utils.putComponentsByID(c_id, status=c_status)
                             self.logs.warn("%s" % error_code.replace('\n', '').replace('`', ''))
                     elif request_method.lower() == "post":
-                        r = requests.get(url, verify=True, timeout=check_timeout)
+                        r = requests.get(url, verify=True, timeout=check_timeout, headers=headers)
                         if r.status_code not in status_codes and r.status_code not in self.httpErrors:
                             error_code = '%s check **failed** - %s \n\n`%s %s HTTP Status Error: %s`' % (
                             url, localtime, request_method, url, httplib.responses[r.status_code])
