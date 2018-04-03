@@ -21,7 +21,11 @@
       "method": "GET",
       "component_id": 2,
       "timeout": 5,
-      "expected_status_code": [200]
+      "expected_status_code": [200],
+      "headers": [
+        {"x-test": "test"},
+        {"x-authorization": "token"}
+      ]
     }
   ]
 }
