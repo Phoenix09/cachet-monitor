@@ -18,6 +18,7 @@
       "enabled": true,
       "name": "Homepage",
       "url": "https://forum.feed-the-beast.com/",
+      "target": "http://127.0.0.1",
       "method": "GET",
       "component_id": 2,
       "timeout": 5,
