@@ -3,13 +3,16 @@
 
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
-import httplib
+try:
+    import httplib
+except ImportError:
+    import http.client as httplib
 import time
 import sys
 import warnings
 
 from system.logging import Logger
-from utils import Utils
+from .utils import Utils
 #
 #
 # Incident Statuses
