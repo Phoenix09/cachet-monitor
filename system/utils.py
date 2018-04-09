@@ -152,6 +152,17 @@ class Utils(object):
 
         return self.__getRequest('/incidents/%s' % i_id)
 
+    def getIncidentsByComponent(self, c_id):
+        """Returns all incidents for a component,
+           most recent incident first.
+
+        :param id: Component ID
+        :return: :class:`Response <Response>` object
+        :rtype: requests.Response
+        """
+
+        return self.__getRequest('/incidents/?sort=id&order=desc&component_id=%s' % c_id)
+
     def postIncidents(self, name, message, status, visible, **kwargs):
         """Create a new incident.
 

@@ -271,18 +271,14 @@ class Cachet(object):
         self.logs.info("############################")
 
     def checkForIncident(self, component_id):
-        current_incidents = self.utils.getIncidents().json()
-        incidents = len(current_incidents['data'])
-        x = 0
+        current_incidents = self.utils.getIncidentsByComponent(component_id).json()
 
-        while x < incidents:
-            incident_id = current_incidents['data'][x]['id']
-            incident_component_id = current_incidents['data'][x]['component_id']
-            incident_status = current_incidents['data'][x]['status']
-
-            if component_id == incident_component_id and incident_status is not 4:
-                return incident_id
-            x += 1
+        incident = current_incidents['data'][0]
+        incident_id = incident['id']
+        incident_component_id = incident['component_id']
+        incident_status = incident['status']
+        if incident_status is not 4:
+	        return incident_id
 
     def getIncidentInfo(self, i_id):
         incident = self.utils.getIncidentsByID(i_id).json()
