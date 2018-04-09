@@ -2,9 +2,11 @@
 # coding=utf-8
 
 import requests
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 import httplib
 import time
 import sys
+import warnings
 
 from system.logging import Logger
 from utils import Utils
@@ -127,6 +129,11 @@ class Cachet(object):
                 strict_tls = self.config['monitoring'][x]['strict_tls']
             except KeyError:
                 strict_tls = True
+
+            if strict_tls:
+                warnings.resetwarnings()
+            else:
+                warnings.simplefilter("ignore", InsecureRequestWarning)
 
             try:
                 if isEnabled:
