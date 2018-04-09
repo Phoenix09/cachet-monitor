@@ -2,12 +2,15 @@
 # coding=utf-8
 
 import requests
-import httplib
+try:
+    import httplib
+except ImportError:
+    import http.client as httplib
 import time
 import sys
 
 from system.logging import Logger
-from utils import Utils
+from .utils import Utils
 #
 #
 # Incident Statuses
