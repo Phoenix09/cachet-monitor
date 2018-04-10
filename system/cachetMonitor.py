@@ -278,7 +278,6 @@ class Cachet(object):
 
         incident = current_incidents['data'][0]
         incident_id = incident['id']
-        incident_component_id = incident['component_id']
         incident_status = incident['status']
         if incident_status is not 4:
 	        return incident_id
