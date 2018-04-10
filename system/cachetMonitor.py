@@ -55,7 +55,7 @@ class Cachet(object):
         103: "resume aborted PUT or POST requests",
         122: "URI is longer than a maximum of 2083 characters",
         # 2xx
-        207: "XML return with possible multiple seperate responses.",
+        207: "XML return with possible multiple separate responses.",
         208: "The results are previously returned.",
         226: "The request has been fulfilled amd response is in instance manipulations.",
         # 3xx
