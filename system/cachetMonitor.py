@@ -280,7 +280,7 @@ class Cachet(object):
         incident_id = incident['id']
         incident_status = incident['status']
         if incident_status is not 4:
-	        return incident_id
+            return incident_id
 
     def getIncidentInfo(self, i_id):
         incident = self.utils.getIncidentsByID(i_id).json()
