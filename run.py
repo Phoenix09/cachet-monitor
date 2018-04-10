@@ -1,13 +1,13 @@
 #!/usr/bin/env python
-import os
 import datetime
 import logging
+import os
 
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.date import DateTrigger
+
 from system.cachetMonitor import Cachet
 from system.utils import Utils
-
 
 # Copyright 2017 Gareth Williams
 #
