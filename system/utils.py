@@ -57,7 +57,7 @@ class Utils(object):
         """
         Updates a component.
 
-        :param id: Component ID
+        :param c_id: Component ID
         :param name: (optional) Name of the component
         :param status: (optional) Status of the component; 1-4
         :param link: (optional) A hyperlink to the component
@@ -72,7 +72,7 @@ class Utils(object):
     def deleteComponentsByID(self, c_id):
         """Delete a component.
 
-        :param id: Component ID
+        :param c_id: Component ID
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """
@@ -91,7 +91,7 @@ class Utils(object):
     def getComponentsGroupsByID(self, c_id):
         """
 
-        :param id: ID of the group you want to fetch
+        :param c_id: ID of the group you want to fetch
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """
@@ -114,7 +114,7 @@ class Utils(object):
     def putComponentsGroupsByID(self, c_id, **kwargs):
         """
 
-        :param id: Component group to update
+        :param c_id: Component group to update
         :param name: (optional) Name of the component group
         :param order: (optional) Order of the group
         :param collapsed: (optional) Whether to collapse the group by default
@@ -127,7 +127,7 @@ class Utils(object):
     def deleteComponentsGroupsByID(self, c_id):
         """
 
-        :param id: Component group to delete
+        :param c_id: Component group to delete
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """
@@ -157,7 +157,7 @@ class Utils(object):
         """Returns all incidents for a component,
            most recent incident first.
 
-        :param id: Component ID
+        :param c_id: Component ID
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """
@@ -187,7 +187,7 @@ class Utils(object):
     def putIncidentsByID(self, i_id, **kwargs):
         """
 
-        :param id: ID of the incident to update.
+        :param i_id: ID of the incident to update.
         :param name: (optional) Name of the incident
         :param message: (optional) A message (supporting Markdown) to explain more.
         :param status: (optional) Status of the incident.
@@ -203,7 +203,7 @@ class Utils(object):
     def deleteIncidentsByID(self, i_id):
         """Delete an incident.
 
-        :param id: Incident ID
+        :param i_id: Incident ID
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """
@@ -240,7 +240,7 @@ class Utils(object):
     def getMetricsByID(self, c_id):
         """Returns a single metric, without points.
 
-        :param id: Metric ID
+        :param c_id: Metric ID
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """
@@ -250,7 +250,7 @@ class Utils(object):
     def deleteMetricsByID(self, c_id):
         """Delete a metric.
 
-        :param id: Metric ID
+        :param c_id: Metric ID
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """
@@ -260,7 +260,7 @@ class Utils(object):
     def getMetricsPointsByID(self, c_id):
         """Return a list of metric points.
 
-        :param id: Metric ID
+        :param c_id: Metric ID
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """
@@ -270,7 +270,7 @@ class Utils(object):
     def postMetricsPointsByID(self, c_id, value, **kwargs):
         """Add a metric point to a given metric.
 
-        :param id: Metric ID
+        :param c_id: Metric ID
         :param value: Value to plot on the metric graph
         :param timestamp: Unix timestamp of the point was measured
         :return: :class:`Response <Response>` object
@@ -283,7 +283,7 @@ class Utils(object):
     def deleteMetricsPointsByID(self, c_id, point_id):
         """Delete a metric point.
 
-        :param id: Metric ID
+        :param c_id: Metric ID
         :param point_id: Metric Point ID
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
@@ -315,7 +315,7 @@ class Utils(object):
     def deleteSubscribersByID(self, c_id):
         """Delete a subscriber.
 
-        :param id: ID of the subscriber to delete
+        :param c_id: ID of the subscriber to delete
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """

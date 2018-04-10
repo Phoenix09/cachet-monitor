@@ -63,4 +63,4 @@ class Logger(object):
             self._write("error.log", f_string)
         self._err(self._getTimestamp() + " | " + Fore.RED + "ERROR" + Style.RESET_ALL + " | %s" % message)
 
-#Logger()
+# Logger()
